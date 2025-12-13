@@ -1,0 +1,10 @@
+{   "node-name" : "<Write your node's name here>",
+    "node-url" : "<Write your url here>moss>",
+    "description" : "<Describe your website with a few words>",
+    "menu" :
+    [
+        "index.md",
+        "about-moss.md",
+        "license.md"
+    ]
+}
