@@ -7,3 +7,4 @@
 * Add as many Markdown files as you want to the `content` folder.
 * Publish the node! Taking into account that is just a bunch of files, it can be just in a Github repo, a server or wherever you want.
 * Let us know your URL so we can include you in the official registry of Moss nodes! 
+* Add a link to other Moss nodes 
