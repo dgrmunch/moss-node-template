@@ -1,0 +1,10 @@
+{   "node-name" : "xmunch",
+    "node-url" : "xmunch.com",
+    "description" : "Just a moss node",
+    "menu" : 
+    [
+        "index.md",
+        "content/nodes.md",
+        "content/license.md"
+    ]
+}

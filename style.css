@@ -1,0 +1,303 @@
+
+
+.terminal {
+    filter:
+    grayscale(100%)
+    contrast(300%)
+    brightness(120%)
+    invert(100%)
+    sepia(100%)
+    hue-rotate(90deg)
+    saturate(400%);
+}
+
+
+:root {
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f4f7f9;
+    --color-text-primary: #1f2937;
+    --color-text-secondary: #6b7280;
+    --color-link: #4b4b4b;       /* monochrome link color */
+    --color-link-hover: #2a2a2a; /* darker monochrome on hover */
+    --color-border: black;
+    --color-code-bg: #f3f4f6;
+    --font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.dark-mode {
+    --color-bg-primary: #000000;
+    --color-bg-secondary: #000000;
+    --color-text-primary: #ffffff;/*#5fff6e;*/
+    --color-text-secondary: #d1d5db;
+    --color-link: #21f7db;       /* lighter monochrome for dark mode */
+    --color-link-hover: #e0e0e0; /* lighter hover */
+    --color-border: #4b5563;
+    --color-code-bg: #4b5563;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#app-container {
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+#main-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem 1.5rem;
+border-bottom: 2px solid var(--color-text-primary);
+background-color: var(--color-bg-primary);
+position: sticky;
+top: 0;
+z-index: 10;
+}
+
+.logo-title {
+    font-size: 70%;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cloud-icon {
+    font-size: 1.2em;
+    margin-right: 0.25rem;
+    white-space: nowrap;
+    vertical-align: middle;
+    filter: grayscale(100%) !important; /* Always monochrome */
+}
+
+.header-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar {
+width: 280px;
+padding: 1.5rem;
+background-color: #000000;
+color: white !important;
+flex-shrink: 0;
+font-size: 80%;
+position: fixed;
+top: 60px;
+left: 0;
+height: calc(100% - 60px);
+z-index: 20;
+transform: translateX(-100%);
+transition: transform 0.3s ease-out;
+box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+border-right: 1px solid var(--color-border);
+}
+
+#sidebar a {
+color: white !important;
+}
+
+#sidebar.hidden {
+transform: translateX(-100%);
+}
+
+#sidebar:not(.hidden) {
+transform: translateX(0);
+}
+
+#content {flex-grow: 1;overflow-x: auto;padding-left: 10%;padding-right: 10%;padding-top: 2rem;padding-bottom: 100px;}
+
+a {
+    color: var(--color-link);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+}
+
+.file-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.file-list li {
+    margin-bottom: 0.4rem;
+}
+
+.file-list a {
+    display: block;
+    padding: 0.3rem 0;
+    color: var(--color-text-primary);
+}
+
+footer {
+    font-size: 50%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    position: fixed;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.file-icon {
+    margin-right: 0.5rem;
+    color: var(--color-text-secondary);
+    filter: grayscale(100%) !important; /* Always monochrome */
+}
+
+#theme-toggle,
+.menu-toggle,
+#size-down,
+#size-up {
+background: none;
+border: 1px solid var(--color-border);
+color: var(--color-text-primary);
+cursor: pointer;
+padding: 0.5rem 0.75rem;
+font-size: 1.2rem;
+line-height: 1;
+border-radius: 4px;
+transition: background-color 0.2s;
+}
+
+#theme-icon {
+filter: grayscale(100%);
+/* optionally adjust brightness or contrast if needed */
+transition: filter 0.3s ease;
+color: inherit; /* so it uses current text color */
+}
+
+
+#theme-toggle:hover,
+.menu-toggle:hover,
+#size-down:hover,
+#size-up:hover {
+background-color: var(--color-bg-secondary);
+}
+
+#content h1,
+#content h2,
+#content h3,
+#content h4 {
+margin-top: 2rem;
+margin-bottom: 1rem;
+font-weight: 500;
+color: var(--color-text-primary);
+border-bottom: 0.5px dashed var(--color-border);
+padding-bottom: 20px;
+text-align: center;
+}
+
+#content h1 { font-size: 2.2rem; }
+#content h2 { font-size: 1.8rem; }
+
+#content p {
+margin-bottom: 1rem;
+text-align: justify;
+}
+
+#content ul,
+#content ol {
+margin-left: 2rem;
+margin-bottom: 1rem;
+}
+
+#content pre {background-color: #0f1318;padding: 1rem;border-radius: 10px;overflow-x: auto;margin-bottom: 1rem;font-family: var(--font-family);/* font-size: 0.9rem; */border: 1px solid;margin: 20px;}
+
+#content code {background-color: #000000;padding: 0.2rem 0.4rem;border-radius: 3px;font-family: var(--font-family);border: 0ppx;color: white;}
+
+
+
+
+.dark-mode #content img{
+    filter: grayscale(100%)
+    contrast(300%)
+    brightness(180%)
+    invert(100%)
+    sepia(100%)
+    hue-rotate(90deg)
+    saturate(0%) !important;
+}
+
+
+#content img {display: block;height: auto;/* width: 100%; */max-width: 500px;margin: 20px auto;border: 2px solid var(--color-border);border-radius: 4px;filter: grayscale(100%);/* transition: filter 0.3s ease; */}
+
+/* On hover capable devices: images become color on hover
+ * @media (hover: hover) and (pointer: fine) {
+ *    #content img:hover {
+ *    filter: none;
+ *    }
+ * }*/
+
+/* On touch devices: images remain monochrome */
+@media (hover: none) and (pointer: coarse) {
+    #content img {
+    filter: grayscale(100%);
+    }
+}
+
+.initial-load,
+.error-prompt {
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+    width: 80%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    #content {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    }
+
+    #content img {
+    max-width: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+    body {
+        font-size: 150%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    #sidebar {
+    width: 280px;
+    }
+}
